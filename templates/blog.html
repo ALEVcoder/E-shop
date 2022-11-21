@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+		
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bread-inner">
+                        <ul class="bread-list">
+                            <li><a href="{% url 'index' %}">Home<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a>Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="blog-single shop-blog grid section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        {% for blog in blogs %}
+                        <div class="col-lg-4 col-md-6 col-12">
+
+                            <div class="shop-single-blog">
+                                <img src="{{ blog.imageURL }}" alt="{{ blog.title }}">
+                                <div class="content">
+                                    <p class="date">{{ blog.created_at }}</p>
+                                    <a href="{% url 'blog_detail' blog.pk %}" class="title">{{ blog.title }}</a>
+                                    <a href="{% url 'blog_detail' blog.pk %}" class="more-btn">Continue Reading</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                        <div class="col-12">
+
+                            <div class="pagination center">
+                                <ul class="pagination-list">
+                                    <li><a href="#"><i class="ti-arrow-left"></i></a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#"><i class="ti-arrow-right"></i></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+            

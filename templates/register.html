@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block content %}
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bread-inner">
+                        <ul class="bread-list">
+                            <li><a href="{% url 'index' %}">Home<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a>Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="shop login section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-12">
+                    <div class="login-form">
+                        <h2>Register</h2>
+                        <p>Please register in order to checkout more quickly</p>
+
+                        <form class="form" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Your Name<span>*</span></label>
+                                        <input type="text" name="firstname" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Last Name<span>*</span></label>
+                                        <input type="text" name="lastname" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Your Email<span>*</span></label>
+                                        <input type="text" name="email" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Your Username<span>*</span></label>
+                                        <input type="text" name="username" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Your Password<span>*</span></label>
+                                        <input type="password" name="password1" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Confirm Password<span>*</span></label>
+                                        <input type="password" name="password2" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group login-btn">
+                                        <button class="btn" type="submit">Register</button>
+                                        <a href="{% url 'login' %}" class="btn">Login</a>
+                                    </div>
+                                    <div class="checkbox">
+                                        <a href="{% provider_login_url 'google' %}" class="lost-pass">Google</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

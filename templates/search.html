@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-12">
+                <div class="widget-title">
+                    <h4>Qidiruv Natijalari</h4>
+                </div>
+                {% if object_list %}
+                {% for region in object_list %}
+                <div class="post">
+                    <figure class="post-thumb"><a href="#"><img src="{{ region.imageURL }}" width="40%" alt="alevcoder"></a></figure>
+                    <h5>{{region.title}}</h5>
+                    <div class="category"><a href="{% url 'blogs' %}">Batafsil</a></div>
+                </div>
+                <hr>
+                {% endfor %}
+                {% else %}
+                <h1>{% trans 'Qidiruv bo\'yicha ma\'lumot topilmadi' %}</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- sidebar-page-container end -->
+
+
+
+
+
+{% endblock content %}

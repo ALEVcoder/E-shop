@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block content %}
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bread-inner">
+                        <ul class="bread-list">
+                            <li><a href="{% url 'index' %}">Home<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a >Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="shop login section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-12">
+                    <div class="login-form">
+                        <h2>Login</h2>
+                        <p>Please register in order to checkout more quickly</p>
+
+                        <form class="form" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Username<span>*</span></label>
+                                        <input type="text" name="username" placeholder="Username..." required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Password<span>*</span></label>
+                                        <input type="password" name="password" placeholder="Password..." required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group login-btn">
+                                        <button class="btn" type="submit">Login</button>
+                                        <a href="{% url 'register' %}" class="btn">Register</a>
+                                    </div>
+                                    <div class="checkbox">
+                                        <a href="{% provider_login_url 'google' %}" class="lost-pass">Google</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+	
+	<!-- Breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="bread-inner">
+						<ul class="bread-list">
+							<li><a href="{% url 'index' %}">Home<i class="ti-arrow-right"></i></a></li>
+							<li class="active"><a>Wishlist</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Breadcrumbs -->
+			
+	<!-- Shopping Cart -->
+	<div class="shopping-cart section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					{% if wishlist %}
+					<!-- Shopping Summery -->
+					<table class="table shopping-summery">
+						<thead>
+							<tr class="main-hading">
+								<th>PRODUCT</th>
+								<th>NAME</th>
+								<th class="text-center">UNIT PRICE</th>
+								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for p in wishlist %}
+							
+							<tr id="remove_cart{{p.id}}">
+								<td class="image" data-title="No"><img src="{{ p.imageURL }}" alt="#"></td>
+								<td class="product-des" data-title="Description">
+									<p class="product-name"><a href="#">{{ p.name }}</a></p>
+									<p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
+								</td>
+								{% if p.discount > 0 %}
+								<td class="price" data-title="Price">
+									<del>{{ p.price }}</del>
+									<span>{{ p.discount_price }}</span>
+								</td>
+								{% endif %}
+								<td class="action" data-title="Remove"><a onclick="add_wishlist({{p.id}})"><i class="ti-trash remove-icon"></i></a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+					<h3 class="product-name" style="text-align: center;"><a href="#">Ma`lumot topilmadi</a></h3>
+					{% endif %}
+					<!--/ End Shopping Summery -->
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
