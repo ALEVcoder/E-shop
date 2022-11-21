@@ -101,6 +101,6 @@ ____
 
 <p align="center">
 
-⭐️ [piyushxbajaj](https://github.com/alevcoder)
+⭐️ [alevcoder](https://github.com/alevcoder)
 
 </p>
